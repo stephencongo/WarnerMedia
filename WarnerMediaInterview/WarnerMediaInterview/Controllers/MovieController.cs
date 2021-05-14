@@ -21,6 +21,7 @@ namespace WarnerMediaInterview.API.Controllers
         {
             _movieService = movieService;
 
+            //using automapper to convert data objects to view model objects.
             var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<WarnerMediaBackend.DataObjects.Award, ViewModels.Award>();
                 cfg.CreateMap<WarnerMediaBackend.DataObjects.Genre, ViewModels.Genre>();
@@ -40,7 +41,7 @@ namespace WarnerMediaInterview.API.Controllers
 
         [HttpGet]
         [Route("search")]
-        public async Task<ActionResult> GetMovieTitleAsync()
+        public async Task<ActionResult> GetAllMovieTitlesAsync()
         {
             var titles = await _movieService.GetMovieTitleSearchAsync("");
             return Ok(_iMapper.Map<List<WarnerMediaBackend.DataObjects.Title>, List<ViewModels.Title>>(titles));
@@ -48,7 +49,7 @@ namespace WarnerMediaInterview.API.Controllers
 
         [HttpGet]
         [Route("search/{searchString}")]
-        public async Task<ActionResult> GetMovieTitleSearchAsync(string searchString = "")
+        public async Task<ActionResult> GetMovieTitleSearchAsync(string searchString)
         {
            var titles = await _movieService.GetMovieTitleSearchAsync(searchString);
             return Ok(_iMapper.Map<List<WarnerMediaBackend.DataObjects.Title>, List<ViewModels.Title>>(titles));
