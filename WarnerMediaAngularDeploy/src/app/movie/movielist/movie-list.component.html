@@ -1,0 +1,36 @@
+<div class='text-center heading'>
+    <b>Movies</b>
+</div>
+<div class='row align-items-center'>
+    <div class='col'></div>
+    <div class='col-md-2'>
+        <input placeholder="Filter By" type='text' [(ngModel)]='searchString' />
+    </div>
+    <div class='col-md-auto ml-2'>
+        <button class='btn btn-primary' (click)='filterMovies()'>Search Movies</button>
+    </div>
+</div>
+
+<div class='table-responsive'>
+    <table class='table table-striped table-bordered'
+        *ngIf='filteredMovies && filteredMovies.length'>
+        <thead class='table-info'>
+            <tr>
+                <th><b>Title Name</b></th>
+                <th><b>Release Year</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let movie of filteredMovies'>
+                
+                <td>
+                    <a [routerLink]="['/movies', movie.titleId]">
+                    {{ movie.titleName }}
+                </a>
+                </td>
+                <td>{{ movie.releaseYear }}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
