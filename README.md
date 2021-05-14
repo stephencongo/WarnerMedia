@@ -9,6 +9,6 @@ To run the WarnerMediaInterview api project please follow the following steps:
 
 To start the WarnerMediaInterview angular instance follow the following steps:
 1. Make sure you have node.js installed on your machine.
-2. Download the WarnerMediaInterview angular project onto your machine.
+2. Download the WarnerMediaAngularDeploy folder onto your machine.
 3. Go to where the warner media project is located with your command browser and run npm install in the command window.
 4. Run npm start and the web application should start.
